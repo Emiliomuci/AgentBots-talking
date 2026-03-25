@@ -131,7 +131,11 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
                 process=Process.sequential,
                 max_rpm=1, # Freno anti-choques de Groq
                 verbose=False,
-                memory=True
+                memory=True,
+                embedder={
+                    "provider": "huggingface",
+                    "config": {"model": "sentence-transformers/all-MiniLM-L6-v2"}
+                }
             )
 
             st.write(f"Sincronizando a {st.session_state.num_agentes} agentes...")
