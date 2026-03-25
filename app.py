@@ -1,7 +1,8 @@
 import streamlit as st
 import os
 from dotenv import load_dotenv
-from crewai import Agent, Task, Crew, Process, LLM
+from crewai import Agent, Task, Crew, Process
+from langchain_groq import ChatGroq
 from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
 
@@ -85,9 +86,9 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
     else:
         with st.status("Ensamblando equipo y ejecutando misión...", expanded=True) as status:
             
-            # 1. Configurar Cerebro (Temperatura baja = Cero alucinaciones)
-            mi_llm = LLM(
-                model="groq/llama-3.1-8b-instant",
+        # 1. Configurar Cerebro Oficial
+            mi_llm = ChatGroq(
+                model="llama-3.1-8b-instant",
                 api_key=os.getenv("GROQ_API_KEY"),
                 temperature=0.3 
             )
