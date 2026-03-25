@@ -1,8 +1,7 @@
 import streamlit as st
 import os
 from dotenv import load_dotenv
-from crewai import Agent, Task, Crew, Process
-from langchain_groq import ChatGroq
+from crewai import Agent, Task, Crew, Process, LLM
 from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
 
@@ -72,7 +71,7 @@ for i in range(st.session_state.num_agentes):
 st.divider()
 
 # --- MISIÓN PRINCIPAL ---
-st.subheader(" Misión Principal")
+st.subheader("🎯 Misión Principal")
 st.info("💡 Tip: En las tareas de tus agentes, asegúrate de escribir la palabra **{tema}** para que la IA sepa dónde insertar tu misión principal.")
 tema_principal = st.text_area("¿De qué trata el proyecto general?", placeholder="Ej. Busco estrategias para comprar y vender casas...")
 
@@ -86,9 +85,9 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
     else:
         with st.status("Ensamblando equipo y ejecutando misión...", expanded=True) as status:
             
-        # 1. Configurar Cerebro Oficial
-            mi_llm = ChatGroq(
-                model="llama-3.1-8b-instant",
+            # 1. Configurar Cerebro Oficial (Corregido a LLM nativo)
+            mi_llm = LLM(
+                model="groq/llama-3.1-8b-instant",
                 api_key=os.getenv("GROQ_API_KEY"),
                 temperature=0.3 
             )
