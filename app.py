@@ -130,7 +130,7 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
                 tasks=lista_tareas_crew,
                 process=Process.sequential,
                 max_rpm=1, # Freno anti-choques de Groq
-                verbose=False 
+                verbose=False,
                 memory=True
             )
 
