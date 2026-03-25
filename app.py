@@ -32,7 +32,7 @@ def quitar_agente():
         st.session_state.num_agentes -= 1
 
 # --- CABECERA ---
-st.markdown("<h1 class='main-title'>🧠 Constructor de Equipos IA</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>Constructor de Equipos IA</h1>", unsafe_allow_html=True)
 st.markdown("<p class='sub-title'>Arma tu agencia, define roles y controla el consumo de datos de cada bot.</p>", unsafe_allow_html=True)
 
 # --- CONTROLES PARA AGREGAR/QUITAR BOTS ---
@@ -71,7 +71,7 @@ for i in range(st.session_state.num_agentes):
 st.divider()
 
 # --- MISIÓN PRINCIPAL ---
-st.subheader("🎯 Misión Principal")
+st.subheader(" Misión Principal")
 st.info("💡 Tip: En las tareas de tus agentes, asegúrate de escribir la palabra **{tema}** para que la IA sepa dónde insertar tu misión principal.")
 tema_principal = st.text_area("¿De qué trata el proyecto general?", placeholder="Ej. Busco estrategias para comprar y vender casas...")
 
@@ -131,6 +131,7 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
                 process=Process.sequential,
                 max_rpm=1, # Freno anti-choques de Groq
                 verbose=False 
+                memory=True
             )
 
             st.write(f"Sincronizando a {st.session_state.num_agentes} agentes...")
