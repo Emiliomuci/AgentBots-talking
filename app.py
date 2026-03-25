@@ -71,12 +71,12 @@ for i in range(st.session_state.num_agentes):
 st.divider()
 
 # --- MISIÓN PRINCIPAL ---
-st.subheader("🎯 Misión Principal")
+st.subheader("Misión Principal")
 st.info("💡 Tip: En las tareas de tus agentes, asegúrate de escribir la palabra **{tema}** para que la IA sepa dónde insertar tu misión principal.")
 tema_principal = st.text_area("¿De qué trata el proyecto general?", placeholder="Ej. Busco estrategias para comprar y vender casas...")
 
 # --- EJECUCIÓN ---
-if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True):
+if st.button("Iniciar Operación", type="primary", use_container_width=True):
     
     if not tema_principal.strip():
         st.error("Por favor, escribe la misión principal.")
