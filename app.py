@@ -131,7 +131,7 @@ if st.button("🚀 Iniciar Operación", type="primary", use_container_width=True
                 process=Process.sequential,
                 max_rpm=1, # Freno anti-choques de Groq
                 verbose=False,
-                memory=True,
+                memory=False,
                 embedder={
                     "provider": "huggingface",
                     "config": {"model": "sentence-transformers/all-MiniLM-L6-v2"}
